@@ -70,6 +70,7 @@ h2 {
   display: flex;
   align-items: center;
   z-index: 500;
+  overflow-wrap: break-word;
 }
 
 .IPDetail_section {

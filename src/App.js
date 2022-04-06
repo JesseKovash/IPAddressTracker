@@ -7,6 +7,7 @@ import Map from "./components/map.jsx";
 import IPDetails from "./components/IPDetails.jsx";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from "leaflet";
+import { APIkey } from "../config.js"
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +38,13 @@ class App extends React.Component {
         "isp": "Consolidated Telcom"
     }
     }
+    this.getNewLocation = this.getNewLocation.bind(this);
   }
+
+  getNewLocation = function (ipAddress) {
+    axios.get()
+  }
+
   render() {
     const {location} = this.state;
     return (
