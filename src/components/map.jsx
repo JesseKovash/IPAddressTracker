@@ -2,7 +2,7 @@ import React from "react";
 
 function Map(props) {
   return (
-    'map section'
+    <div></div>
   )
 };
 

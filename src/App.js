@@ -8,14 +8,13 @@ import IPDetails from "./components/IPDetails.jsx";
 
 class App extends React.Component {
   render() {
-    const { name } = this.props;
     return (
-      <>
+      <div className="components_container">
         <TopSection />
         <IPDetails />
         <Map />
         {/* <Button variant="contained">this is a material UI button</Button> */}
-      </>
+      </div>
     );
   }
 }
