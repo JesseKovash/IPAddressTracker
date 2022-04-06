@@ -2,3 +2,10 @@ h1 {
   color: white;
   background-color: black;
 }
+
+#topSection {
+  /* background-image: url("../images/pattern-bg.png"); */
+  /* width: 100%; */
+  object-fit: contain;
+  height: 300px;
+}
