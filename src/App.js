@@ -5,15 +5,50 @@ import Button from '@material-ui/core/Button';
 import TopSection from "./components/topSection.jsx";
 import Map from "./components/map.jsx";
 import IPDetails from "./components/IPDetails.jsx";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Icon } from "leaflet";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: {
+        "ip": "72.20.77.193",
+        "location": {
+            "country": "US",
+            "region": "North Dakota",
+            "city": "Dickinson",
+            "lat": 46.87918,
+            "lng": -102.78962,
+            "postalCode": "58601",
+            "timezone": "-06:00",
+            "geonameId": 5688789
+        },
+        "domains": [
+            "lefor-193.ctcinet.com"
+        ],
+        "as": {
+            "asn": 400439,
+            "name": "CONSOLIDATEDTELCOM-AS",
+            "route": "72.20.64.0/19",
+            "domain": "",
+            "type": ""
+        },
+        "isp": "Consolidated Telcom"
+    }
+    }
+  }
   render() {
+    const {location} = this.state;
     return (
-      <div className="components_container">
-        <TopSection />
-        <IPDetails />
-        <Map />
-        {/* <Button variant="contained">this is a material UI button</Button> */}
+      <div>
+        <div className="components_container">
+          <TopSection />
+          <IPDetails location={location}/>
+        </div >
+        <div className="leaflet-container">
+          <Map location={location}/>
+        </div>
       </div>
     );
   }
