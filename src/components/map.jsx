@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from "leaflet";
 
 function Map(props) {
-  console.log(props.location)
   // var map = L.map('map').setView([51.505, -0.09], 13);
   return (
       <MapContainer center={[props.location.location.lat, props.location.location.lng]} zoom={12} scrollWheelZoom={false}>

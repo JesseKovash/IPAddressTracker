@@ -61,7 +61,6 @@ h2 {
   background-color: white;
   width: 70%;
   height: 175px;
-  outline: solid red 1px;
   border-radius: 15px;
   position: absolute;
   top: 100%;
@@ -71,6 +70,7 @@ h2 {
   align-items: center;
   z-index: 500;
   overflow-wrap: break-word;
+  box-shadow: 1px 1px 3px  gray;
 }
 
 .IPDetail_section {

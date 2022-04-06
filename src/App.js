@@ -7,7 +7,8 @@ import Map from "./components/map.jsx";
 import IPDetails from "./components/IPDetails.jsx";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon } from "leaflet";
-import { APIkey } from "../config.js"
+import { APIkey } from "../config.js";
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,45 +17,68 @@ class App extends React.Component {
       location: {
         "ip": "72.20.77.193",
         "location": {
-            "country": "US",
-            "region": "North Dakota",
-            "city": "Dickinson",
-            "lat": 46.87918,
-            "lng": -102.78962,
-            "postalCode": "58601",
-            "timezone": "-06:00",
-            "geonameId": 5688789
+          "country": "US",
+          "region": "North Dakota",
+          "city": "Dickinson",
+          "lat": 46.87918,
+          "lng": -102.78962,
+          "postalCode": "58601",
+          "timezone": "-06:00",
+          "geonameId": 5688789
         },
         "domains": [
-            "lefor-193.ctcinet.com"
+          "lefor-193.ctcinet.com"
         ],
         "as": {
-            "asn": 400439,
-            "name": "CONSOLIDATEDTELCOM-AS",
-            "route": "72.20.64.0/19",
-            "domain": "",
-            "type": ""
+          "asn": 400439,
+          "name": "CONSOLIDATEDTELCOM-AS",
+          "route": "72.20.64.0/19",
+          "domain": "",
+          "type": ""
         },
         "isp": "Consolidated Telcom"
-    }
+      },
+      searchTerm: ''
     }
     this.getNewLocation = this.getNewLocation.bind(this);
+    this.onIPChange = this.onIPChange.bind(this);
   }
 
-  getNewLocation = function (ipAddress) {
-    axios.get()
+  getNewLocation = function () {
+    console.log('in request: ', this.state.searchTerm)
+    axios.get(APIkey, { params: {"ipAddress": this.state.searchTerm}})
+      .then((res) => {
+        console.log('insuccess: ', res.data)
+        this.setState({
+          location: res.data,
+          searchTerm: ''
+        });
+      })
+      .catch((err)=> {
+        console.log(err)
+      });
+  }
+
+  onIPChange = function (e) {
+    let input = e.target.value;
+    this.setState({
+      searchTerm: input
+    });
   }
 
   render() {
-    const {location} = this.state;
     return (
       <div>
         <div className="components_container">
-          <TopSection />
-          <IPDetails location={location}/>
+          <TopSection
+            getNewLocation={this.getNewLocation}
+            searchTerm={this.state.searchTerm}
+            onIPChange={this.onIPChange}
+          />
+          <IPDetails location={this.state.location} />
         </div >
         <div className="leaflet-container">
-          <Map location={location}/>
+          <Map location={this.state.location} />
         </div>
       </div>
     );

@@ -59,6 +59,7 @@ const stateAbbrev = function(state) {
 }
 
 function IPDetails(props) {
+  // console.log(props.location)
   return (
     <div className="IPDetails_container">
       <div className="IPDetail_section">
@@ -81,7 +82,7 @@ function IPDetails(props) {
       </div>
       <div className="IPDetail_section">
         <h3>ISP</h3>
-        <h4>{props.location.as.name}</h4>
+        <h4>{props.location.isp}</h4>
       </div>
     </div>
   )
