@@ -45,10 +45,9 @@ class App extends React.Component {
   }
 
   getNewLocation = function () {
-    console.log('in request: ', this.state.searchTerm)
+    // console.log('in request: ', this.state.searchTerm)
     axios.get(APIkey, { params: {"ipAddress": this.state.searchTerm}})
       .then((res) => {
-        console.log('insuccess: ', res.data)
         this.setState({
           location: res.data,
           searchTerm: ''
