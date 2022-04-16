@@ -10,7 +10,7 @@ function Map(props) {
     map.setView(center, zoom);
     return null;
   }
-  console.log(position)
+
   return (
       <MapContainer center={position} zoom={12} scrollWheelZoom={false}>
         <ChangeView center={position} zoom={12} />

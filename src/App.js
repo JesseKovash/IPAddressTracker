@@ -45,8 +45,8 @@ class App extends React.Component {
   }
 
   getNewLocation = function () {
-    // console.log('in request: ', this.state.searchTerm)
-    axios.get(APIkey, { params: {"ipAddress": this.state.searchTerm}})
+    if (this.state.searchTerm.toString().split('.').length > 3) {
+      axios.get(APIkey, { params: {"ipAddress": this.state.searchTerm}})
       .then((res) => {
         this.setState({
           location: res.data,
@@ -56,6 +56,28 @@ class App extends React.Component {
       .catch((err)=> {
         console.log(err)
       });
+    } else {
+      axios.get(APIkey, { params: {"domain": this.state.searchTerm}})
+      .then((res) => {
+        this.setState({
+          location: res.data,
+          searchTerm: ''
+        });
+      })
+      .catch((err)=> {
+        console.log(err)
+      });
+    }
+    // axios.get(APIkey, { params: {"ipAddress": this.state.searchTerm}})
+      // .then((res) => {
+      //   this.setState({
+      //     location: res.data,
+      //     searchTerm: ''
+      //   });
+      // })
+      // .catch((err)=> {
+      //   console.log(err)
+      // });
   }
 
   onIPChange = function (e) {
