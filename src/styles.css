@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 .components_container{
@@ -13,7 +14,7 @@ h2 {
   color: white;
   font-weight: 500;
   font-size: 2.2rem;
-  margin: 1rem 0 1.5rem 0;
+  margin: 2rem 0 2rem 0;
 }
 
 .topSection {
@@ -25,14 +26,15 @@ h2 {
 }
 
 .input_container {
-  width: 40%;
+  max-width: 60%;
+  min-width: 45%;
   height: 3.5rem;
 }
 
 .IP_input {
   margin: 0;
   padding: 0;
-  width: 90%;
+  width: calc(100% - 50px);
   height: 100%;
   border: none;
   border-top-left-radius: 15px;
@@ -41,7 +43,7 @@ h2 {
 
 ::placeholder {
   padding-left: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: rgb(162, 160, 160);
   opacity: 75%;
 }
@@ -49,7 +51,7 @@ h2 {
 .IP_input_button {
   margin: 0;
   padding: 0;
-  width: 8%;
+  width: 50px;
   height: 100%;
   border: none;
   background-color: black;
@@ -59,27 +61,29 @@ h2 {
 
 .IPDetails_container {
   background-color: white;
-  width: 70%;
-  height: 175px;
+  min-width: 70%;
+  max-width: 95%;
+  max-height: 175px;
+  min-height: 150px;
   border-radius: 15px;
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  align-items: center;
   z-index: 500;
   overflow-wrap: break-word;
   box-shadow: 1px 1px 3px  gray;
 }
 
 .IPDetail_section {
-  width: 25%;
+  min-width: 25%;
   height: 50%;
+  margin-top: 30px;
 }
 
 .IPDetail_section + .IPDetail_section {
-  border-left: solid rgb(162, 160, 160)1px;
+  border-left: solid rgb(162, 160, 160) 1px;
 }
 
 h3 {
@@ -98,4 +102,111 @@ h4 {
 .leaflet-container {
   height: 100vh;
   width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .IPDetails_container {
+    width: 80%;
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    margin: 2.5rem 0 1.5rem;
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  ::placeholder {
+    padding-left: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .IPDetails_container {
+    min-width: 85%;
+    font-size: 1.4rem;
+    min-height: 130px;
+  }
+
+  h2 {
+    margin-top: 3rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  ::placeholder {
+    font-size: 0.9rem;
+    padding-left: 0.5rem;
+  }
+
+  .input_container {
+    max-width: 80%;
+    min-width: 60%;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .IPDetails_container {
+    width: 90%;
+    font-size: 1.4rem;
+    min-height: 150px;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  .input_container {
+    width: 50%;
+    height: 3rem;
+  }
+
+  ::placeholder {
+    overflow-wrap: normal;
+  }
+}
+
+@media screen and (max-width: 525px) {
+  .IPDetails_container {
+    flex-direction: column;
+    max-height: 300px;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  .IPDetail_section {
+    width: 75%;
+    height: 25%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .IPDetail_section + .IPDetail_section {
+    border: none;
+  }
+
+  .input_container {
+    width: 90%;
+    height: 3rem;
+  }
+
+  h2 {
+    margin: 1.5rem 0
+  }
+
+  h3 {
+    font-size: 0.7rem;
+  }
+
+  h4 {
+    margin: 10px 0 10px 0;
+  }
+
 }
