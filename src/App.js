@@ -42,6 +42,7 @@ class App extends React.Component {
     }
     this.getNewLocation = this.getNewLocation.bind(this);
     this.onIPChange = this.onIPChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   getNewLocation = function () {
@@ -87,6 +88,14 @@ class App extends React.Component {
     });
   }
 
+  handleKeyPress = function (event) {
+    if (event.code == 'Enter') {
+      event.preventDefault();
+      event.stopPropagation();
+      this.getNewLocation();
+    }
+  }
+
   render() {
     return (
       <div>
@@ -95,6 +104,7 @@ class App extends React.Component {
             getNewLocation={this.getNewLocation}
             searchTerm={this.state.searchTerm}
             onIPChange={this.onIPChange}
+            handleKeyPress={this.handleKeyPress}
           />
           <IPDetails location={this.state.location} />
         </div >

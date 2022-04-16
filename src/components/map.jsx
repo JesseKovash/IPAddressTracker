@@ -5,6 +5,7 @@ import { Icon } from "leaflet";
 function Map(props) {
   // var map = L.map('map').setView([51.505, -0.09], 13);
   let position = [props.location.location.lat, props.location.location.lng];
+
   function ChangeView({ center, zoom }) {
     const map = useMap();
     map.setView(center, zoom);
