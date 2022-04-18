@@ -1,6 +1,4 @@
-# empty-project-babel-css-jest-material-ui-png-react-react-hot-loader-svg
-
-Empty project.
+# IP Address Tracker
 
 ## Building and running on localhost
 
@@ -32,14 +30,10 @@ npm run build-dev
 
 Open the file `dist/index.html` in your browser
 
-## Testing
 
-To run unit tests:
-
-```sh
-npm test
-```
-
-## Credits
-
-Made with [createapp.dev](https://createapp.dev/)
+## Tech
+-axios: V0.26.1
+-react: V17.0.2
+-react-dom: V17.0.2
+-react-leaflet: V3.2.5
+-IP Geolocation API by IPify
