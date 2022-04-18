@@ -1,5 +1,13 @@
 # IP Address Tracker
 
+## Demo
+
+### Search by IP address or domain name
+![Search Functionality](http://g.recordit.co/BnVI2UptaB.gif)
+
+### Responsive to screen width changes: Mobile and Desktop views
+![Responsiveness](http://g.recordit.co/2OxoXzZHNR.gif)
+
 ## Building and running on localhost
 
 First install dependencies:
